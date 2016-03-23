@@ -7,12 +7,16 @@ package front.end.pkg20;
 
 import javafx.geometry.Insets;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -25,13 +29,13 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author 24701
+ * @author Erich S. Vrany
  */
 public class FrontEnd20 extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        /*Button btn = new Button();
+        /*Button btn = new Button(); // Step one of the tutorial from Oracle
         btn.setText("Say 'Hello World'");
         btn.setOnAction(new EventHandler<ActionEvent>() {
             
@@ -59,7 +63,7 @@ public class FrontEnd20 extends Application {
         grid.setPadding(new Insets(25, 25, 25, 25));
         
         Text scenetitle = new Text("Welcome");
-        scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+        scenetitle.setId("welcome-text");
         grid.add(scenetitle, 0, 0, 2, 1);
         
         Label userName = new Label("User Name:");
@@ -82,18 +86,20 @@ public class FrontEnd20 extends Application {
         
         final Text actiontarget = new Text();
         grid.add(actiontarget, 1, 6);
+        actiontarget.setId("actiontarget");        
 
-        btn.setOnAction(new EventHandler<ActionEvent>() {
- 
+        btn.setOnAction(new EventHandler<ActionEvent>() { 
             @Override
             public void handle(ActionEvent e) {
-                actiontarget.setFill(Color.FIREBRICK);
                 actiontarget.setText("Sign in button pressed");
             }
         });
 
         Scene scene = new Scene(grid, 300, 275);
         primaryStage.setScene(scene);
+        
+        scene.getStylesheets().add
+        (FrontEnd20.class.getResource("StyleSheet.css").toExternalForm());
         
         primaryStage.show();
     }
