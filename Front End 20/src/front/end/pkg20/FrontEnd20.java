@@ -1,7 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+ * The MIT License
+ *
+ * Copyright 2016 Erich S. Vrany.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 package front.end.pkg20;
 
@@ -19,6 +37,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -28,31 +48,14 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- *
  * @author Erich S. Vrany
+ * 
+ * Comment out anything you don't need
  */
 public class FrontEnd20 extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        /*Button btn = new Button(); // Step one of the tutorial from Oracle
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
-        
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        
-        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.show();*/
         
         primaryStage.setTitle("JavaFX Welcome");
         
@@ -89,12 +92,13 @@ public class FrontEnd20 extends Application {
         grid.add(actiontarget, 1, 6);
         actiontarget.setId("actiontarget"); // Add an actiontarget at 0,1
 
-        btn.setOnAction(new EventHandler<ActionEvent>() { 
-            @Override
-            public void handle(ActionEvent e) {
-                actiontarget.setText("Sign in button pressed");
-            }
+        btn.setOnAction((ActionEvent e) -> {
+            actiontarget.setText("Sign in button pressed");
         });     // Create EventHandler for when button is pressed
+        
+        Image sampleImage = new Image("sample.png", 100, 0, false, false);
+        ImageView sampleImageView = new ImageView(sampleImage);
+        grid.add(sampleImageView, 0, 5);
 
         Scene scene = new Scene(grid, 300, 275);
         primaryStage.setScene(scene);
