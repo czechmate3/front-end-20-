@@ -56,52 +56,54 @@ public class FrontEnd20 extends Application {
         
         primaryStage.setTitle("JavaFX Welcome");
         
-        GridPane grid = new GridPane();
-        grid.setAlignment(Pos.CENTER);
-        grid.setHgap(10);
-        grid.setVgap(10);
+        GridPane grid = new GridPane(); // Create grid
+        grid.setAlignment(Pos.CENTER); // Set alignmet
+        grid.setHgap(10); // Set gap between horizontal sections
+        grid.setVgap(10); // Set gap between verticle sections
         grid.setPadding(new Insets(25, 25, 25, 25));
         
         Text scenetitle = new Text("Welcome");
         scenetitle.setId("welcome-text");
-        grid.add(scenetitle, 0, 0, 2, 1);
+        grid.add(scenetitle, 0, 0, 2, 1); // Create and add a screentitle at 
+                                          // 0,0 spanning 2 columns and 1 row
         
         Label userName = new Label("User Name:");
-        grid.add(userName, 0, 1);
+        grid.add(userName, 0, 1); // Create and add a label at 0,1                                         
 
         TextField userTextField = new TextField();
-        grid.add(userTextField, 1, 1);
+        grid.add(userTextField, 1, 1); // Create and add a TextField at 1,1
         
         Label pw = new Label("Password:");
-        grid.add(pw, 0, 2);
+        grid.add(pw, 0, 2); // Create and add a label at 0,2
         
         PasswordField pwBox = new PasswordField();
-        grid.add(pwBox, 1, 2);
+        grid.add(pwBox, 1, 2); // Create and add a PasswordField at 1,2
         
         Button btn = new Button("Sign in");
         HBox hbBtn = new HBox(10);
         hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
         hbBtn.getChildren().add(btn);
-        grid.add(hbBtn, 1, 4);
+        grid.add(hbBtn, 1, 4); // Create and add a button at 1,4
         
-        final Text actiontarget = new Text();
+        final Text actiontarget = new Text(); // Create CSS actiontarget
         grid.add(actiontarget, 1, 6);
-        actiontarget.setId("actiontarget");        
+        actiontarget.setId("actiontarget"); // Add an actiontarget at 0,1
 
         btn.setOnAction(new EventHandler<ActionEvent>() { 
             @Override
             public void handle(ActionEvent e) {
                 actiontarget.setText("Sign in button pressed");
             }
-        });
+        });     // Create EventHandler for when button is pressed
 
         Scene scene = new Scene(grid, 300, 275);
         primaryStage.setScene(scene);
         
         scene.getStylesheets().add
         (FrontEnd20.class.getResource("StyleSheet.css").toExternalForm());
+                // Add CSS
         
-        primaryStage.show();
+        primaryStage.show(); // Create UI
     }
 
     /**
